@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    	
+    	function asignarEvents(){
+    		$("input[name='creardorEnlace']").on("click",construirEnlace);
+    		$("input[name='clonadorEnlace']").on("click",clonaEnlace);
+    	};
+
+    	function construirEnlace() {
+    		var texto = "nuevo enlace";
+    		var enlace = "http://nuevoenlace.com";
+    		var class1 = "myClass";
+    		var myP = $('#firstP');
+    		var myLink = $('<a>',{text: texto,class: class1, href:enlace});
+
+    		myP.append(myLink);
+    	}
+
+    	function clonaEnlace(){
+    		
+    		var mySpan = $('p>span');
+    		var cloneElement = $("a:first").clone();
+    		cloneElement.insertAfter(mySpan);
+    	}
+
+
+    	$(document).ready(asignarEvents);
+
+    </script>
+  </head>
+  <body>
+    <h2>Creación i clonación de elementos con jQuery</h2>
+    <p id="firstP">
+
+    </p>
+    <p>
+      <span>Aquí van los elementos clonados</span>
+    </p>
+    <input type="button" name="creardorEnlace" value="Crear enlace"/>
+    <input type="button" name="clonadorEnlace" value="Clona el enlace"/>
+  </body>
+</html>
